@@ -1,0 +1,58 @@
+﻿<Window x:Class="BirthdayDate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BirthdayDate"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        Title="MainWindow" MaxWidth="400" MaxHeight="250" Background="#FFDDEEFF">
+    <Window.Resources>
+        <Color x:Key="SolidColorBrushColor1">#FF34628F</Color>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Astrological calculator" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Franklin Gothic Heavy" FontSize="22" Margin="0,9,0,0">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+            </TextBlock.Foreground></TextBlock>
+        <TextBlock Grid.Column="0" Text="Today's date: " Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Tahoma" TextAlignment="Right" Foreground="#FF34628F" FontSize="16"/>
+        <TextBlock x:Name="TbDateNow" Text="{Binding Source={x:Static sys:DateTime.Now},
+                  StringFormat='{}{0:dd MMM yyyy}'}" Grid.Row="1" Grid.Column="1" Foreground="#FF34628F" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Tahoma" FontSize="16"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Birthday date: " VerticalAlignment="Center" Foreground="#FF34628F" FontFamily="Tahoma" HorizontalAlignment="Right" FontSize="16"/>
+        <DatePicker x:Name="DpBirthday" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF34628F" FontFamily="Tahoma" Background="#FFDDEEFF" FontSize="16">
+            <DatePicker.BorderBrush>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFA3AEB9"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FFDDEEFF" Offset="1"/>
+                </RadialGradientBrush>
+            </DatePicker.BorderBrush>
+        </DatePicker>
+        <Button x:Name="BExit" Grid.Column="0" Grid.Row="3" Height="20" Width="75"  Margin="0,2,0,2" Content="Exit" Click="BExit_Click" Background="#FF4991D9" BorderBrush="#FF4991D9" Foreground="#FFDDEEFF" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Tahoma" FontSize="14"/>
+        <Button x:Name="BCalculate" Grid.Column="1" Grid.Row="3" Height="20" Width="75" Margin="0,2,0,2" Click="BCalculate_Click" Content="Calculate" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFDDEEFF" BorderBrush="#FF4991D9" Background="#FF4991D9" FontSize="14" />
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Your age: " HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Tahoma" Foreground="#FF34628F" TextDecorations="Underline" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="5" x:Name="TbAge" HorizontalAlignment="Left" VerticalAlignment="Center" Text="" Foreground="#FF34628F" FontFamily="Tahoma" FontSize="14"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="Chinese zodiac: " HorizontalAlignment="Right" VerticalAlignment="Center" TextDecorations="Underline" FontFamily="Tahoma" Foreground="#FF34628F" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="6" x:Name="TbChineseSign" HorizontalAlignment="Left" VerticalAlignment="Center" Text="" Foreground="#FF34628F" FontFamily="Tahoma" FontSize="14"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7" Text="Zodiac sign: " HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#FF34628F" TextDecorations="Underline" FontFamily="Tahoma" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="7" x:Name="TbZodiacSign" HorizontalAlignment="Left" VerticalAlignment="Center" Text="" Foreground="#FF34628F" FontFamily="Tahoma" FontSize="14"></TextBlock>
+        <TextBlock x:Name="TbWishes" Grid.ColumnSpan="2" Text="" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontFamily="Script MT Bold" FontSize="22"></TextBlock>
+    </Grid>
+</Window>
